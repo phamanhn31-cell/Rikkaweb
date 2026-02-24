@@ -1,0 +1,46 @@
+{
+  "assistantId": "assistant-1",
+  "chatModelId": "model-1",
+  "assistants": [
+    {
+      "id": "assistant-1",
+      "name": "Default",
+      "systemPrompt": "",
+      "chatModelId": "model-1",
+      "temperature": 0.7,
+      "topP": null,
+      "maxTokens": 4096,
+      "thinkingBudget": null,
+      "mcpServers": [],
+      "localTools": [
+        "time_info",
+        "javascript_engine",
+        "clipboard"
+      ],
+      "modeInjectionIds": [],
+      "lorebookIds": []
+    }
+  ],
+  "providers": [
+    {
+      "id": "provider-openai",
+      "type": "openai",
+      "enabled": true,
+      "name": "OpenAI",
+      "apiKey": [
+        ""
+      ],
+      "baseUrl": "https://api.openai.com/v1",
+      "chatCompletionsPath": "/chat/completions",
+      "models": [
+        {
+          "id": "model-1",
+          "enabled": true,
+          "modelId": "gpt-4.1-mini",
+          "displayName": "GPT-4.1 mini"
+        }
+      ]
+    }
+  ],
+  "mcpServers": []
+}

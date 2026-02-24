@@ -1,0 +1,21 @@
+.gradle/
+.kotlin/
+**/build/
+
+# Runtime data
+data/
+db/
+upload/
+tmp/
+standalone-server/data/
+
+# Evidence/agent artifacts
+.sisyphus/
+standalone-server/.sisyphus/
+
+# Local files
+.DS_Store
+
+# Built jar output (keep locally, don't commit)
+rikkaweb.jar
+SHA256SUMS

@@ -1,0 +1,15 @@
+services:
+  rikkaweb:
+    build: .
+    image: rikkaweb:latest
+    ports:
+      - "${RIKKAHUB_PORT:-11001}:11001"
+    environment:
+      RIKKAHUB_JWT_ENABLED: "${RIKKAHUB_JWT_ENABLED:-true}"
+      RIKKAHUB_ACCESS_PASSWORD: "${RIKKAHUB_ACCESS_PASSWORD:-change_me}"
+      RIKKAHUB_HOST: "0.0.0.0"
+      RIKKAHUB_PORT: "11001"
+      RIKKAHUB_DATA_DIR: "/data"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped

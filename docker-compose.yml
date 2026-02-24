@@ -1,7 +1,7 @@
 services:
   rikkaweb:
+    image: "${RIKKAWEB_IMAGE:-curaalizm/rikkaweb:latest}"
     build: .
-    image: rikkaweb:latest
     ports:
       - "${RIKKAHUB_PORT:-11001}:11001"
     environment:

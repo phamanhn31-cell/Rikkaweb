@@ -4,12 +4,30 @@
 
 ```bash
 cd rikkaweb
-RIKKAHUB_ACCESS_PASSWORD=change_me docker compose up -d --build
+RIKKAHUB_ACCESS_PASSWORD=change_me docker compose up -d
 ```
 
 Open:
 
 - `http://localhost:11001/`
+
+## Image
+
+By default, `docker-compose.yml` uses the published Docker Hub image:
+
+- `curaalizm/rikkaweb:latest`
+
+Override it if needed:
+
+```bash
+RIKKAWEB_IMAGE=curaalizm/rikkaweb:33cae50 RIKKAHUB_ACCESS_PASSWORD=change_me docker compose up -d
+```
+
+To build locally instead of pulling:
+
+```bash
+RIKKAHUB_ACCESS_PASSWORD=change_me docker compose up -d --build
+```
 
 ## Persistent data
 

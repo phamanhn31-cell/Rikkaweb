@@ -1,27 +1,10 @@
-FROM eclipse-temurin:17-jdk-jammy AS build
-
-WORKDIR /src
-
-COPY gradle/ gradle/
-COPY gradlew gradlew
-COPY gradlew.bat gradlew.bat
-COPY build.gradle.kts settings.gradle.kts gradle.properties ./
-COPY standalone-server/build.gradle.kts standalone-server/build.gradle.kts
-COPY standalone-server/src/ standalone-server/src/
-
-RUN ./gradlew :standalone-server:rikkawebJar --no-daemon \
-  -Dkotlin.incremental=false \
-  -Dkotlin.compiler.execution.strategy=in-process
-
-FROM eclipse-temurin:17-jre-jammy
+FROM curaalizm/rikkaweb:latest
 
 WORKDIR /app
 
-COPY --from=build /src/standalone-server/build/libs/rikkaweb.jar /app/rikkaweb.jar
+# 覆盖成你已经改好的 entrypoint.sh（关键！支持 Render 的 $PORT）
 COPY docker/entrypoint.sh /app/entrypoint.sh
-
-RUN chmod +x /app/entrypoint.sh \
-  && mkdir -p /data
+RUN chmod +x /app/entrypoint.sh
 
 EXPOSE 11001
 VOLUME ["/data"]
